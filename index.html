@@ -1,500 +1,1122 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Anjuri Pavan Sai Kumar – Resume</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet"/>
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --bg:#0d0f12;
-  --bg2:#13161b;
-  --bg3:#1a1e25;
-  --teal:#2dd4bf;
-  --teal2:#0f9484;
-  --coral:#f97066;
-  --text:#e8eaf0;
-  --muted:#8b90a0;
-  --border:#252a35;
-  --card:#161b24;
-}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7}
-a{color:var(--teal);text-decoration:none}
-a:hover{opacity:.8}
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(13,15,18,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;padding:.8rem 4rem}
-.nav-name{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--teal)}
-.nav-links{display:flex;gap:2rem}
-.nav-links a{color:var(--muted);font-size:.85rem;font-weight:500;letter-spacing:.04em;transition:.2s}
-.nav-links a:hover{color:var(--text)}
-/* HERO */
-.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:8rem 4rem 4rem;max-width:1100px;margin:0 auto}
-.hero-tag{font-size:.8rem;font-weight:500;letter-spacing:.15em;color:var(--teal);text-transform:uppercase;margin-bottom:1.5rem;opacity:0;animation:fadeUp .6s .2s forwards}
-.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,6vw,5rem);font-weight:600;line-height:1.1;margin-bottom:1.5rem;opacity:0;animation:fadeUp .6s .4s forwards}
-.hero h1 span{color:var(--teal)}
-.hero-summary{max-width:680px;color:var(--muted);font-size:1.05rem;line-height:1.8;opacity:0;animation:fadeUp .6s .6s forwards;margin-bottom:2.5rem}
-.hero-chips{display:flex;flex-wrap:wrap;gap:.6rem;opacity:0;animation:fadeUp .6s .8s forwards;margin-bottom:3rem}
-.chip{padding:.35rem .9rem;border:1px solid var(--border);border-radius:999px;font-size:.8rem;color:var(--muted);background:var(--bg2)}
-.chip.accent{border-color:var(--teal2);color:var(--teal);background:rgba(45,212,191,.06)}
-.hero-contacts{display:flex;gap:1.5rem;flex-wrap:wrap;opacity:0;animation:fadeUp .6s 1s forwards}
-.hero-contacts a{color:var(--muted);font-size:.85rem;display:flex;align-items:center;gap:.4rem;transition:.2s}
-.hero-contacts a:hover{color:var(--teal)}
-.scroll-hint{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.4rem;color:var(--muted);font-size:.75rem;opacity:0;animation:fadeIn 1s 1.5s forwards}
-.scroll-line{width:1px;height:40px;background:linear-gradient(var(--teal),transparent)}
-/* SECTIONS */
-section{padding:6rem 4rem;max-width:1100px;margin:0 auto}
-.section-label{font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:var(--teal);font-weight:500;margin-bottom:.6rem}
-.section-title{font-family:'Playfair Display',serif;font-size:2.2rem;margin-bottom:3rem;position:relative;display:inline-block}
-.section-title::after{content:'';position:absolute;bottom:-8px;left:0;width:40px;height:2px;background:var(--teal)}
-/* EXPERIENCE */
-.exp-grid{display:grid;gap:1.5rem}
-.exp-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.8rem;cursor:pointer;transition:.25s;position:relative;overflow:hidden}
-.exp-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--teal);opacity:0;transition:.25s}
-.exp-card:hover,.exp-card.open{border-color:rgba(45,212,191,.25);background:#161e28}
-.exp-card:hover::before,.exp-card.open::before{opacity:1}
-.exp-head{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem}
-.exp-left{flex:1}
-.exp-role{font-weight:500;font-size:1rem;color:var(--text)}
-.exp-company{color:var(--teal);font-size:.9rem;margin-top:.2rem}
-.exp-meta{font-size:.8rem;color:var(--muted);margin-top:.25rem}
-.exp-dates{font-size:.82rem;color:var(--muted);white-space:nowrap;margin-top:.2rem;font-family:'DM Mono',monospace}
-.exp-toggle{color:var(--muted);font-size:1.2rem;transition:.3s;flex-shrink:0}
-.exp-card.open .exp-toggle{transform:rotate(45deg);color:var(--teal)}
-.exp-body{display:none;margin-top:1.2rem;padding-top:1.2rem;border-top:1px solid var(--border)}
-.exp-card.open .exp-body{display:block}
-.exp-body ul{list-style:none;display:grid;gap:.7rem}
-.exp-body ul li{display:flex;gap:.7rem;font-size:.9rem;color:#b0b5c5;line-height:1.6}
-.exp-body ul li::before{content:'→';color:var(--teal);flex-shrink:0;margin-top:.05rem}
-.exp-body ul li strong{color:var(--text);font-weight:500}
-.badge{display:inline-block;padding:.15rem .6rem;border-radius:4px;font-size:.72rem;font-weight:500;background:rgba(45,212,191,.1);color:var(--teal);border:1px solid rgba(45,212,191,.2);margin-left:.4rem;vertical-align:middle}
-/* SKILLS */
-.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem}
-.skill-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.5rem}
-.skill-cat{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);font-weight:500;margin-bottom:1rem}
-.skill-tags{display:flex;flex-wrap:wrap;gap:.5rem}
-.stag{padding:.3rem .75rem;background:var(--bg3);border:1px solid var(--border);border-radius:6px;font-size:.8rem;color:var(--muted)}
-.stag.hot{border-color:rgba(249,112,102,.3);color:#f97066;background:rgba(249,112,102,.07)}
-/* EDUCATION */
-.edu-grid{display:grid;gap:1rem}
-.edu-row{display:flex;gap:1.5rem;align-items:center;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.2rem 1.5rem}
-.edu-year{font-family:'DM Mono',monospace;font-size:.82rem;color:var(--teal);min-width:60px}
-.edu-degree{font-weight:500;font-size:.95rem}
-.edu-inst{font-size:.85rem;color:var(--muted);margin-top:.15rem}
-.edu-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0}
-/* ACHIEVEMENTS */
-.ach-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
-.ach-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.3rem;transition:.2s}
-.ach-card:hover{border-color:rgba(45,212,191,.3);transform:translateY(-2px)}
-.ach-icon{font-size:1.3rem;margin-bottom:.7rem}
-.ach-text{font-size:.88rem;color:#b0b5c5;line-height:1.6}
-/* EXTRA */
-.extra-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
-.extra-block{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.2rem}
-.extra-label{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:.6rem}
-.extra-items{display:flex;flex-direction:column;gap:.35rem}
-.extra-item{font-size:.88rem;color:var(--muted)}
-/* FOOTER */
-footer{border-top:1px solid var(--border);padding:2rem 4rem;text-align:center;color:var(--muted);font-size:.82rem}
-/* ANIMATIONS */
-@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
-.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
-.reveal.visible{opacity:1;transform:none}
-@media(max-width:768px){
-  nav{padding:.8rem 1.5rem}
-  .nav-links{gap:1rem}
-  .hero,section{padding:5rem 1.5rem 3rem}
-  footer{padding:2rem 1.5rem}
-}
-</style>
-</head>
-<body>
-<nav>
-  <span class="nav-name">Anjuri Pavan</span>
-  <div class="nav-links">
-    <a href="#experience">Experience</a>
-    <a href="#skills">Skills</a>
-    <a href="#education">Education</a>
-    <a href="#achievements">Achievements</a>
-  </div>
-</nav>
-<div style="position:relative">
-<div class="hero">
-  <div class="hero-tag">Chartered Accountant · FP&A · Finance + Technology</div>
-  <h1>Anjuri<br/><span>Pavan Sai Kumar</span></h1>
-  <div style="font-size:.9rem;color:var(--muted);margin-bottom:1.8rem;letter-spacing:.04em;opacity:0;animation:fadeUp .6s .5s forwards">Chartered Accountant (ACA) · ICAI</div>
-  <p class="hero-summary">
-    Genuinely passionate about working at the intersection of finance and technology — a combination that comes naturally and drives both personal fulfilment and consistent, stress-free delivery. Proven ability to bridge core finance and technology, driving automation, operational efficiency, and decision-ready insights across Fortune 500 environments. A strong fit for technofinance roles, while equally effective in traditional finance — bringing the analytical rigour, logical thinking, and business acumen that modern finance demands.
-  </p>
-  <div class="hero-chips">
-    <span class="chip accent">FP&amp;A</span>
-    <span class="chip accent">Finance Transformation</span>
-    <span class="chip accent">AI-Enabled Solutions</span>
-    <span class="chip">Power BI</span>
-    <span class="chip">Python</span>
-    <span class="chip">IBM Planning Analytics</span>
-    <span class="chip">Fortune 500 Experience</span>
-    <span class="chip">Product Builder</span>
-  </div>
-  <div class="hero-contacts">
-    <a href="mailto:anjuripavan@mail.ca.in">✉ anjuripavan@mail.ca.in</a>
-    <a href="tel:+918331840881">✆ +91 8331 840 881</a>
-    <a href="https://linkedin.com/in/anjuripavan" target="_blank">⟶ LinkedIn</a>
-    <span style="color:var(--muted);font-size:.85rem;display:flex;align-items:center;gap:.4rem">⬡ Hyderabad, India</span>
-  </div>
-</div>
-<div class="scroll-hint"><div class="scroll-line"></div>scroll</div>
-</div>
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="reveal">
-    <div class="section-label">Where I've worked</div>
-    <div class="section-title">Experience</div>
-  </div>
-  <div class="exp-grid reveal">
-    <div class="exp-card" onclick="toggle(this)">
-      <div class="exp-head">
-        <div class="exp-left">
-          <div class="exp-role">Senior Financial Analyst – FP&amp;A <span class="badge">Current</span></div>
-          <div class="exp-company">Optum (UnitedHealth Group) · Fortune 500 #7</div>
-          <div class="exp-meta">Hyderabad, India</div>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.3rem">
-          <div class="exp-dates">Mar 2026 – Present</div>
-          <div class="exp-toggle">+</div>
-        </div>
-      </div>
-      <div class="exp-body">
-        <ul>
-          <li><span><strong>P&amp;L Dashboard:</strong> Built and manage a centralised Optum Insight P&amp;L dashboard covering $20B+ revenue and 20M+ line items, enabling real-time variance analysis and faster decision-making for senior leadership.</span></li>
-          <li><span><strong>EVI Strategy Group:</strong> Core member of the Enterprise Value &amp; Innovation (EVI) Strategy Group, acting as the internal automation and analytics expert for finance across the Indian finance organisation.</span></li>
-          <li><span><strong>E2E Automation:</strong> Independently design and deliver end-to-end finance automation solutions, owning business logic, data flow, validations, and documentation — ensuring full transparency and explainability for stakeholders.</span></li>
-          <li><span><strong>Vendor Spend Dashboard:</strong> Designed and automated a Vendor Spend Dashboard covering $4B+ in costs, providing insights into top vendor spends, labour vs non-labour breakdown, and market-level decomposition.</span></li>
-        </ul>
-      </div>
-    </div>
-    <div class="exp-card" onclick="toggle(this)">
-      <div class="exp-head">
-        <div class="exp-left">
-          <div class="exp-role">Financial Analyst – FP&amp;A</div>
-          <div class="exp-company">Optum (UnitedHealth Group) · Fortune 500 #7</div>
-          <div class="exp-meta">Hyderabad, India</div>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.3rem">
-          <div class="exp-dates">Nov 2024 – Feb 2026</div>
-          <div class="exp-toggle">+</div>
-        </div>
-      </div>
-      <div class="exp-body">
-        <ul>
-          <li><span><strong>500+ hrs saved:</strong> Led multiple automation initiatives across FP&amp;A workflows using Python, Power BI, and Power Automate — delivering 500+ hours of annual efficiency gains.</span></li>
-          <li><span><strong>Financial Modelling:</strong> Developed multi-quarter, driver-based financial models covering revenue, cost, and resource planning, enabling leadership to assess transformation initiatives in a dynamic environment.</span></li>
-          <li><span><strong>Dashboards:</strong> Designed and maintained advanced FP&amp;A dashboards across multiple OI businesses (Advisory, Payment Integrity, RCM) — enabling granular variance analysis and leadership-ready views.</span></li>
-          <li><span><strong>IBM PA Champion:</strong> Became the key point of contact for IBM Planning Analytics (TM1) within the team, supporting adoption and helping colleagues resolve functional and technical challenges.</span></li>
-          <li><span><strong>AI Chatbots:</strong> Built Copilot Studio finance chatbots for IBM PA support and SOP-based queries, positioning automations as a scalable support mechanism for finance teams.</span></li>
-        </ul>
-      </div>
-    </div>
-    <div class="exp-card" onclick="toggle(this)">
-      <div class="exp-head">
-        <div class="exp-left">
-          <div class="exp-role">VyneraFlow – The Money Tracker</div>
-          <div class="exp-company">Personal Project · Android App (Play Store)</div>
-          <div class="exp-meta">Product &amp; Innovation</div>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.3rem">
-          <div class="exp-dates">Dec 2025 – Mar 2026</div>
-          <div class="exp-toggle">+</div>
-        </div>
-      </div>
-      <div class="exp-body">
-        <ul>
-          <li><span>Designed and launched an Android-based money tracking application with automated SMS-based transaction capture and categorisation.</span></li>
-          <li><span>Owned the product requirements, feature design, and roadmap, leveraging ChatGPT and Gemini; implemented end-to-end using Android Studio (Gemini agent) and Google Stitch for UI design.</span></li>
-          <li><span>Delivered a production-grade application at zero build cost using $300 Google trial credits — demonstrating cost-efficient, AI-driven product delivery.</span></li>
-        </ul>
-      </div>
-    </div>
-    <div class="exp-card" onclick="toggle(this)">
-      <div class="exp-head">
-        <div class="exp-left">
-          <div class="exp-role">Financial Analyst (Freelancer)</div>
-          <div class="exp-company">Upwork · Remote</div>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.3rem">
-          <div class="exp-dates">Oct 2022 – Jun 2024</div>
-          <div class="exp-toggle">+</div>
-        </div>
-      </div>
-      <div class="exp-body">
-        <ul>
-          <li><span>Supported international clients with financial analysis, reporting, and dashboard creation, improving visibility into costs and performance.</span></li>
-          <li><span>Provided training and support to clients, empowering them with data-driven insights.</span></li>
-        </ul>
-      </div>
-    </div>
-    <div class="exp-card" onclick="toggle(this)">
-      <div class="exp-head">
-        <div class="exp-left">
-          <div class="exp-role">CA Industrial Trainee – FP&amp;A</div>
-          <div class="exp-company">ITC Limited · $70B Market Cap FMCG</div>
-          <div class="exp-meta">Hyderabad, India</div>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.3rem">
-          <div class="exp-dates">Oct 2021 – Sep 2022</div>
-          <div class="exp-toggle">+</div>
-        </div>
-      </div>
-      <div class="exp-body">
-        <ul>
-          <li><span>Assisted in financial planning and performance analysis, including pricing and product-level insights.</span></li>
-          <li><span>Contributed to process improvements that increased scrap revenue by approximately ₹30M (55% growth).</span></li>
-          <li><span>Led Power BI implementation at ITC HQ, enhancing data visualisation and decision-making for senior management.</span></li>
-        </ul>
-      </div>
-    </div>
-    <div class="exp-card" onclick="toggle(this)">
-      <div class="exp-head">
-        <div class="exp-left">
-          <div class="exp-role">Article Assistant – Consultancy</div>
-          <div class="exp-company">J S Sundaram &amp; Co (JSS Pro)</div>
-          <div class="exp-meta">Hyderabad, India · Leading CA Firm</div>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.3rem">
-          <div class="exp-dates">Mar 2020 – Sep 2021</div>
-          <div class="exp-toggle">+</div>
-        </div>
-      </div>
-      <div class="exp-body">
-        <ul>
-          <li><span>Managed end-to-end accounting and MIS reporting for an IT services company, while supporting a gaming startup with financial reporting and compliance (GST, TDS).</span></li>
-          <li><span>Automated payroll-related processes using VBA, improving efficiency and reducing errors.</span></li>
-          <li><span>Awarded Most Efficient Article at JSS Pro.</span></li>
-        </ul>
-      </div>
-    </div>
-    <div class="exp-card" onclick="toggle(this)">
-      <div class="exp-head">
-        <div class="exp-left">
-          <div class="exp-role">Article Assistant – Auditing</div>
-          <div class="exp-company">Rao &amp; Kumar Associates · 50-year CA Firm</div>
-          <div class="exp-meta">Hyderabad, India</div>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.3rem">
-          <div class="exp-dates">Sep 2019 – Feb 2020</div>
-          <div class="exp-toggle">+</div>
-        </div>
-      </div>
-      <div class="exp-body">
-        <ul>
-          <li><span>Conducted internal audits for listed and private companies including HBL Ltd. and Celkon LLP, identifying control gaps and areas for improvement.</span></li>
-          <li><span>Prepared audit documentation and supported recommendations to strengthen internal controls and financial reporting.</span></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- SKILLS -->
-<section id="skills" style="background:var(--bg2)">
-  <div style="max-width:1100px;margin:0 auto">
-  <div class="reveal">
-    <div class="section-label">What I work with</div>
-    <div class="section-title">Skills</div>
-  </div>
-  <div class="skills-grid reveal">
-    <div class="skill-card">
-      <div class="skill-cat">Finance</div>
-      <div class="skill-tags">
-        <span class="stag hot">FP&A</span>
-        <span class="stag hot">Financial Modelling</span>
-        <span class="stag">Budgeting & Forecasting</span>
-        <span class="stag">Variance Analysis</span>
-        <span class="stag">Driver-Based Models</span>
-        <span class="stag">P&L Reporting</span>
-        <span class="stag">MIS Reporting</span>
-      </div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-cat">Tools & Platforms</div>
-      <div class="skill-tags">
-        <span class="stag hot">Power BI</span>
-        <span class="stag hot">IBM Planning Analytics</span>
-        <span class="stag">Advanced Excel</span>
-        <span class="stag">Power Automate</span>
-        <span class="stag">Copilot Studio</span>
-        <span class="stag">Oracle Essbase</span>
-        <span class="stag">SAP</span>
-        <span class="stag">Peoplesoft</span>
-        <span class="stag">Azure Cloud</span>
-      </div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-cat">Programming</div>
-      <div class="skill-tags">
-        <span class="stag hot">Python</span>
-        <span class="stag">SQL (Basic)</span>
-        <span class="stag">VBA / Macros</span>
-        <span class="stag">Android Studio</span>
-      </div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-cat">Soft Skills</div>
-      <div class="skill-tags">
-        <span class="stag">Stakeholder Engagement</span>
-        <span class="stag">Cross-Functional Collaboration</span>
-        <span class="stag">Ownership Mindset</span>
-        <span class="stag">Rapid Learning</span>
-        <span class="stag">Process Improvement</span>
-      </div>
-    </div>
-  </div>
-  </div>
-</section>
-<!-- EDUCATION -->
-<section id="education">
-  <div class="reveal">
-    <div class="section-label">Academic background</div>
-    <div class="section-title">Education</div>
-  </div>
-  <div class="edu-grid reveal">
-    <div class="edu-row">
-      <div class="edu-dot"></div>
-      <div class="edu-year">2024</div>
-      <div>
-        <div class="edu-degree">Chartered Accountant</div>
-        <div class="edu-inst">Institute of Chartered Accountants of India (ICAI)</div>
-      </div>
-    </div>
-    <div class="edu-row">
-      <div class="edu-dot" style="background:var(--muted)"></div>
-      <div class="edu-year">2023</div>
-      <div>
-        <div class="edu-degree">Bachelor of Commerce</div>
-        <div class="edu-inst">Indira Gandhi National Open University (IGNOU)</div>
-      </div>
-    </div>
-    <div class="edu-row">
-      <div class="edu-dot" style="background:var(--muted)"></div>
-      <div class="edu-year">2017</div>
-      <div>
-        <div class="edu-degree">Class XII · MPC</div>
-        <div class="edu-inst">AP Inter Board</div>
-      </div>
-    </div>
-    <div class="edu-row">
-      <div class="edu-dot" style="background:var(--muted)"></div>
-      <div class="edu-year">2015</div>
-      <div>
-        <div class="edu-degree">Class X</div>
-        <div class="edu-inst">CBSE</div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- ACHIEVEMENTS -->
-<section id="achievements" style="background:var(--bg2)">
-  <div style="max-width:1100px;margin:0 auto">
-  <div class="reveal">
-    <div class="section-label">Milestones</div>
-    <div class="section-title">Achievements</div>
-  </div>
-  <div class="ach-grid reveal">
-    <div class="ach-card">
-      <div class="ach-icon">📊</div>
-      <div class="ach-text">Built a <strong style="color:var(--text)">Power BI interactive resume</strong> that directly secured a global FP&A role at a Fortune 500 organisation as an early-career professional.</div>
-    </div>
-    <div class="ach-card">
-      <div class="ach-icon">⚡</div>
-      <div class="ach-text"><strong style="color:var(--text)">Promoted within one appraisal cycle</strong> — an accelerated progression reflecting strong performance and measurable impact at Optum.</div>
-    </div>
-    <div class="ach-card">
-      <div class="ach-icon">👥</div>
-      <div class="ach-text"><strong style="color:var(--text)">Led a team of 8 members</strong> in the Stock Audit of ITC Ltd., managing coordination and deliverables end-to-end.</div>
-    </div>
-    <div class="ach-card">
-      <div class="ach-icon">🌟</div>
-      <div class="ach-text">Received <strong style="color:var(--text)">multiple Bravo awards</strong> from internal teams at Optum for automation initiatives and cross-team support.</div>
-    </div>
-    <div class="ach-card">
-      <div class="ach-icon">🏆</div>
-      <div class="ach-text">Awarded <strong style="color:var(--text)">Most Efficient Article</strong> at JSS Pro — recognised for exceptional output and work quality.</div>
-    </div>
-    <div class="ach-card">
-      <div class="ach-icon">🏔</div>
-      <div class="ach-text">Completed the <strong style="color:var(--text)">Everest Base Camp Trek</strong> solo — a testament to endurance, planning, and a relentless pursuit of challenges.</div>
-    </div>
-  </div>
-  </div>
-</section>
-<!-- ADDITIONAL -->
-<section id="additional">
-  <div class="reveal">
-    <div class="section-label">Beyond work</div>
-    <div class="section-title">Additional</div>
-  </div>
-  <div class="extra-grid reveal">
-    <div class="extra-block">
-      <div class="extra-label">Languages</div>
-      <div class="extra-items">
-        <span class="extra-item">English — Fluent</span>
-        <span class="extra-item">Hindi — Fluent</span>
-        <span class="extra-item">Telugu — Native</span>
-      </div>
-    </div>
-    <div class="extra-block">
-      <div class="extra-label">Certifications</div>
-      <div class="extra-items">
-        <span class="extra-item">Microsoft Azure Cloud Fundamentals</span>
-        <span class="extra-item">Microsoft Power BI Essentials</span>
-        <span class="extra-item">Advanced Excel</span>
-        <span class="extra-item">Python Basics</span>
-      </div>
-    </div>
-    <div class="extra-block">
-      <div class="extra-label">Interests</div>
-      <div class="extra-items">
-        <span class="extra-item">Technology</span>
-        <span class="extra-item">Business</span>
-        <span class="extra-item">Fitness</span>
-        <span class="extra-item">Travel (10+ Indian states, multiple countries)</span>
-        <span class="extra-item">Photography</span>
-      </div>
-    </div>
-  </div>
-</section>
-<footer>
-  <p style="margin-bottom:.4rem;font-family:'Playfair Display',serif;font-size:1rem;color:var(--text)">Anjuri Pavan Sai Kumar</p>
-  <p>anjuripavan@mail.ca.in · +91 8331 840 881 · <a href="https://linkedin.com/in/anjuripavan">linkedin.com/in/anjuripavan</a></p>
-</footer>
-<script>
-function toggle(card){
-  const isOpen = card.classList.contains('open');
-  document.querySelectorAll('.exp-card.open').forEach(c=>{
-    c.classList.remove('open');
-  });
-  if(!isOpen) card.classList.add('open');
-}
-const observer = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      e.target.classList.add('visible');
-      // stagger children
-      e.target.querySelectorAll('.exp-card, .skill-card, .edu-row, .ach-card, .extra-block').forEach((el,i)=>{
-        el.style.transitionDelay = (i*0.07)+'s';
-        el.style.opacity='0';
-        el.style.transform='translateY(16px)';
-        el.style.transition='opacity .5s ease, transform .5s ease';
-        requestAnimationFrame(()=>{
-          el.style.opacity='1';
-          el.style.transform='none';
-        });
-      });
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anjuri Pavan Sai Kumar – Resume</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap"
+    rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
     }
-  });
-},{threshold:0.1});
-document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
-</script>
+
+    :root {
+      --bg: #0d0f12;
+      --bg2: #13161b;
+      --bg3: #1a1e25;
+      --teal: #2dd4bf;
+      --teal2: #0f9484;
+      --coral: #f97066;
+      --text: #e8eaf0;
+      --muted: #8b90a0;
+      --border: #252a35;
+      --card: #161b24;
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      line-height: 1.7
+    }
+
+    a {
+      color: var(--teal);
+      text-decoration: none
+    }
+
+    a:hover {
+      opacity: .8
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(13, 15, 18, .92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: .8rem 4rem
+    }
+
+    .nav-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      color: var(--teal)
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: .85rem;
+      font-weight: 500;
+      letter-spacing: .04em;
+      transition: .2s
+    }
+
+    .nav-links a:hover {
+      color: var(--text)
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 85vh;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3rem;
+      padding: 6rem 6rem 3rem;
+      max-width: 1400px;
+      margin: 0 auto
+    }
+
+    .hero-content {
+      flex: 1
+    }
+
+    .hero-tag {
+      font-size: .8rem;
+      font-weight: 500;
+      letter-spacing: .15em;
+      color: var(--teal);
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp .6s .2s forwards
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 600;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp .6s .4s forwards
+    }
+
+    .hero h1 span {
+      color: var(--teal)
+    }
+
+    .hero-summary {
+      max-width: 680px;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      opacity: 0;
+      animation: fadeUp .6s .6s forwards;
+      margin-bottom: 2.5rem
+    }
+
+    .hero-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .6rem;
+      opacity: 0;
+      animation: fadeUp .6s .8s forwards;
+      margin-bottom: 3rem
+    }
+
+    .chip {
+      padding: .35rem .9rem;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: .8rem;
+      color: var(--muted);
+      background: var(--bg2);
+      transition: .2s;
+      cursor: pointer;
+    }
+
+    .chip:hover {
+      border-color: rgba(249, 112, 102, .3);
+      color: var(--coral);
+      background: rgba(249, 112, 102, .07);
+    }
+
+    .hero-contacts {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      opacity: 0;
+      animation: fadeUp .6s 1s forwards;
+    }
+
+    .hero-contacts a {
+      color: var(--muted);
+      font-size: .85rem;
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+      transition: .2s
+    }
+
+    .hero-contacts a:hover {
+      color: var(--teal)
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .4rem;
+      color: var(--muted);
+      font-size: .75rem;
+      opacity: 0;
+      animation: fadeIn 1s 1.5s forwards
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(var(--teal), transparent)
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 4rem 6rem;
+      max-width: 1400px;
+      margin: 0 auto
+    }
+
+    .section-label {
+      font-size: .75rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--teal);
+      font-weight: 500;
+      margin-bottom: .4rem
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      position: relative;
+      display: inline-block
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background: var(--teal)
+    }
+
+    /* EXPERIENCE */
+    .exp-grid {
+      display: grid;
+      gap: 1rem
+    }
+
+    .exp-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.2rem 1.5rem;
+      cursor: pointer;
+      transition: .25s;
+      position: relative;
+      overflow: hidden
+    }
+
+    .exp-card::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: var(--teal);
+      opacity: 0;
+      transition: .25s
+    }
+
+    .exp-card:hover,
+    .exp-card.open {
+      border-color: rgba(45, 212, 191, .25);
+      background: #161e28
+    }
+
+    .exp-card:hover::before,
+    .exp-card.open::before {
+      opacity: 1
+    }
+
+    .exp-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem
+    }
+
+    .exp-left {
+      flex: 1
+    }
+
+    .exp-role {
+      font-weight: 500;
+      font-size: 1rem;
+      color: var(--text)
+    }
+
+    .exp-company {
+      color: var(--teal);
+      font-size: .9rem;
+      margin-top: .2rem
+    }
+
+    .exp-meta {
+      font-size: .8rem;
+      color: var(--muted);
+      margin-top: .25rem
+    }
+
+    .exp-dates {
+      font-size: .82rem;
+      color: var(--muted);
+      white-space: nowrap;
+      margin-top: .2rem;
+      font-family: 'DM Mono', monospace
+    }
+
+    .exp-toggle {
+      color: var(--muted);
+      font-size: 1.2rem;
+      transition: .3s;
+      flex-shrink: 0
+    }
+
+    .exp-card.open .exp-toggle {
+      transform: rotate(45deg);
+      color: var(--teal)
+    }
+
+    .exp-body {
+      display: none;
+      margin-top: 1.2rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid var(--border)
+    }
+
+    .exp-card.open .exp-body {
+      display: block
+    }
+
+    .exp-body ul {
+      list-style: none;
+      display: grid;
+      gap: .7rem
+    }
+
+    .exp-body ul li {
+      display: flex;
+      gap: .7rem;
+      font-size: .9rem;
+      color: #b0b5c5;
+      line-height: 1.6
+    }
+
+    .exp-body ul li::before {
+      content: '→';
+      color: var(--teal);
+      flex-shrink: 0;
+      margin-top: .05rem
+    }
+
+    .exp-body ul li strong {
+      color: var(--text);
+      font-weight: 500
+    }
+
+    .badge {
+      display: inline-block;
+      padding: .15rem .6rem;
+      border-radius: 4px;
+      font-size: .72rem;
+      font-weight: 500;
+      background: rgba(45, 212, 191, .1);
+      color: var(--teal);
+      border: 1px solid rgba(45, 212, 191, .2);
+      margin-left: .4rem;
+      vertical-align: middle
+    }
+
+    /* SKILLS */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.2rem
+    }
+
+    .skill-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem
+    }
+
+    .skill-cat {
+      font-size: .75rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--teal);
+      font-weight: 500;
+      margin-bottom: 1rem
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem
+    }
+
+    .stag {
+      padding: .3rem .75rem;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: .8rem;
+      color: var(--muted);
+      transition: .2s;
+    }
+
+    .stag:hover {
+      border-color: rgba(249, 112, 102, .3);
+      color: #f97066;
+      background: rgba(249, 112, 102, .07);
+    }
+
+    /* EDUCATION */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1rem
+    }
+
+    .edu-row {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.2rem 1.5rem
+    }
+
+    .edu-year {
+      font-family: 'DM Mono', monospace;
+      font-size: .82rem;
+      color: var(--teal);
+      min-width: 60px
+    }
+
+    .edu-degree {
+      font-weight: 500;
+      font-size: .95rem
+    }
+
+    .edu-inst {
+      font-size: .85rem;
+      color: var(--muted);
+      margin-top: .15rem
+    }
+
+    .edu-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--teal);
+      flex-shrink: 0
+    }
+
+    /* ACHIEVEMENTS */
+    .ach-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem
+    }
+
+    .ach-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.3rem;
+      transition: .2s
+    }
+
+    .ach-card:hover {
+      border-color: rgba(45, 212, 191, .3);
+      transform: translateY(-2px)
+    }
+
+    .ach-icon {
+      font-size: 1.3rem;
+      margin-bottom: .7rem
+    }
+
+    .ach-text {
+      font-size: .88rem;
+      color: #b0b5c5;
+      line-height: 1.6
+    }
+
+    /* EXTRA */
+    .extra-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem
+    }
+
+    .extra-block {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.2rem
+    }
+
+    .extra-label {
+      font-size: .72rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: .6rem
+    }
+
+    .extra-items {
+      display: flex;
+      flex-direction: column;
+      gap: .35rem
+    }
+
+    .extra-item {
+      font-size: .88rem;
+      color: var(--muted)
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 6rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: .82rem
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(18px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0
+      }
+
+      to {
+        opacity: 1
+      }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .6s ease, transform .6s ease
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none
+    }
+
+    @media(max-width:768px) {
+      nav {
+        padding: .8rem 1.5rem
+      }
+
+      .nav-links {
+        gap: 1rem
+      }
+
+      .hero,
+      section {
+        padding: 5rem 1.5rem 3rem
+      }
+
+      .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 2rem
+      }
+
+      .hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center
+      }
+
+      .hero-chips {
+        justify-content: center
+      }
+
+      .hero-contacts {
+        justify-content: center
+      }
+
+      footer {
+        padding: 2rem 1.5rem
+      }
+    }
+
+    .profile-pic-container {
+      flex-shrink: 0;
+      opacity: 0;
+      animation: fadeUp .6s .8s forwards;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .profile-pic {
+      width: 300px;
+      height: 380px;
+      border-radius: 16px;
+      border: 2px solid var(--teal);
+      object-fit: cover;
+      box-shadow: 0 0 40px rgba(45, 212, 191, 0.12), 0 8px 32px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .profile-pic:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 50px rgba(45, 212, 191, 0.2), 0 12px 40px rgba(0, 0, 0, 0.5);
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <span class="nav-name">Anjuri Pavan</span>
+    <div class="nav-links">
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#additional">Additional</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+  <div style="position:relative">
+    <div class="hero">
+      <div class="hero-content">
+        <div class="hero-tag">Chartered Accountant · FP&A · Finance + Technology</div>
+        <h1>Anjuri<br /><span>Pavan Sai Kumar</span></h1>
+        <div
+          style="font-size:.9rem;color:var(--muted);margin-bottom:1.8rem;letter-spacing:.04em;opacity:0;animation:fadeUp .6s .5s forwards">
+          Chartered Accountant (ACA) · ICAI</div>
+        <p class="hero-summary">
+          Genuinely passionate about working at the intersection of finance and technology, a combination that comes
+          naturally and drives both personal fulfilment and consistent, stress-free delivery. Proven ability to bridge
+          core finance and technology, driving automation, operational efficiency, and decision-ready insights across
+          Fortune 500 environments. A strong fit for technofinance roles, while equally effective in traditional finance
+          - bringing the analytical rigour, logical thinking, and business acumen that modern finance demands.
+        </p>
+        <div class="hero-chips">
+          <span class="chip">FP&amp;A</span>
+          <span class="chip">Finance Transformation</span>
+          <span class="chip">AI-Enabled Solutions</span>
+          <span class="chip">Power BI</span>
+          <span class="chip">Python</span>
+          <span class="chip">IBM Planning Analytics</span>
+          <span class="chip">Fortune 500 Experience</span>
+          <span class="chip">Product Builder</span>
+        </div>
+      </div>
+      <div class="profile-pic-container">
+        <img src="Gemini Generated Photo.png" alt="Anjuri Pavan Sai Kumar" class="profile-pic">
+        <div class="hero-contacts">
+          <a href="mailto:anjuripavan@mail.ca.in">✉ anjuripavan@mail.ca.in</a>
+          <a href="tel:+918331840881">✆ +91 8331 840 881</a>
+          <a href="https://linkedin.com/in/anjuripavan" target="_blank">⟶ LinkedIn</a>
+          <span style="color:var(--muted);font-size:.85rem;display:flex;align-items:center;gap:.4rem">⬡ Hyderabad,
+            India</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="reveal">
+      <div class="section-label">Where I've worked</div>
+      <div class="section-title">Experience</div>
+    </div>
+    <div class="exp-grid reveal">
+      <div class="exp-card" onclick="toggle(this)">
+        <div class="exp-head">
+          <div class="exp-left">
+            <div class="exp-role">Senior Financial Analyst – FP&amp;A <span class="badge">Current</span></div>
+            <div class="exp-company">Optum (UnitedHealth Group) · Fortune 500 #7</div>
+            <div class="exp-meta">Hyderabad, India</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.3rem">
+            <div class="exp-dates">Mar 2026 – Present</div>
+            <div class="exp-toggle">+</div>
+          </div>
+        </div>
+        <div class="exp-body">
+          <ul>
+            <li><span><strong>P&amp;L Dashboard:</strong> Built and manage a centralised Optum Insight P&amp;L dashboard
+                covering $20B+ revenue and 20M+ line items, enabling real-time variance analysis and faster
+                decision-making for senior leadership.</span></li>
+            <li><span><strong>EVI Strategy Group:</strong> Core member of the Enterprise Value &amp; Innovation (EVI)
+                Strategy Group, acting as the internal automation and analytics expert for finance across the Indian
+                finance organisation.</span></li>
+            <li><span><strong>E2E Automation:</strong> Independently design and deliver end-to-end finance automation
+                solutions, owning business logic, data flow, validations, and documentation — ensuring full transparency
+                and explainability for stakeholders.</span></li>
+            <li><span><strong>Vendor Spend Dashboard:</strong> Designed and automated a Vendor Spend Dashboard covering
+                $4B+ in costs, providing insights into top vendor spends, labour vs non-labour breakdown, and
+                market-level decomposition.</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-card" onclick="toggle(this)">
+        <div class="exp-head">
+          <div class="exp-left">
+            <div class="exp-role">Financial Analyst – FP&amp;A</div>
+            <div class="exp-company">Optum (UnitedHealth Group) · Fortune 500 #7</div>
+            <div class="exp-meta">Hyderabad, India</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.3rem">
+            <div class="exp-dates">Nov 2024 – Feb 2026</div>
+            <div class="exp-toggle">+</div>
+          </div>
+        </div>
+        <div class="exp-body">
+          <ul>
+            <li><span><strong>500+ hrs saved:</strong> Led multiple automation initiatives across FP&amp;A workflows
+                using Python, Power BI, and Power Automate — delivering 500+ hours of annual efficiency gains.</span>
+            </li>
+            <li><span><strong>Financial Modelling:</strong> Developed multi-quarter, driver-based financial models
+                covering revenue, cost, and resource planning, enabling leadership to assess transformation initiatives
+                in a dynamic environment.</span></li>
+            <li><span><strong>Dashboards:</strong> Designed and maintained advanced FP&amp;A dashboards across multiple
+                OI businesses (Advisory, Payment Integrity, RCM) — enabling granular variance analysis and
+                leadership-ready views.</span></li>
+            <li><span><strong>IBM PA Champion:</strong> Became the key point of contact for IBM Planning Analytics (TM1)
+                within the team, supporting adoption and helping colleagues resolve functional and technical
+                challenges.</span></li>
+            <li><span><strong>AI Chatbots:</strong> Built Copilot Studio finance chatbots for IBM PA support and
+                SOP-based queries, positioning automations as a scalable support mechanism for finance teams.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-card" onclick="toggle(this)">
+        <div class="exp-head">
+          <div class="exp-left">
+            <div class="exp-role">Financial Analyst (Freelancer)</div>
+            <div class="exp-company">Upwork · Remote</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.3rem">
+            <div class="exp-dates">Oct 2022 – Jun 2024</div>
+            <div class="exp-toggle">+</div>
+          </div>
+        </div>
+        <div class="exp-body">
+          <ul>
+            <li><span>Supported international clients with financial analysis, reporting, and dashboard creation,
+                improving visibility into costs and performance.</span></li>
+            <li><span>Provided training and support to clients, empowering them with data-driven insights.</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-card" onclick="toggle(this)">
+        <div class="exp-head">
+          <div class="exp-left">
+            <div class="exp-role">CA Industrial Trainee – FP&amp;A</div>
+            <div class="exp-company">ITC Limited · $70B Market Cap FMCG</div>
+            <div class="exp-meta">Hyderabad, India</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.3rem">
+            <div class="exp-dates">Oct 2021 – Sep 2022</div>
+            <div class="exp-toggle">+</div>
+          </div>
+        </div>
+        <div class="exp-body">
+          <ul>
+            <li><span>Assisted in financial planning and performance analysis, including pricing and product-level
+                insights.</span></li>
+            <li><span>Contributed to process improvements that increased scrap revenue by approximately ₹30M (55%
+                growth).</span></li>
+            <li><span>Led Power BI implementation at ITC HQ, enhancing data visualisation and decision-making for senior
+                management.</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-card" onclick="toggle(this)">
+        <div class="exp-head">
+          <div class="exp-left">
+            <div class="exp-role">Article Assistant – Consultancy</div>
+            <div class="exp-company">J S Sundaram &amp; Co (JSS Pro)</div>
+            <div class="exp-meta">Hyderabad, India · Leading CA Firm</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.3rem">
+            <div class="exp-dates">Mar 2020 – Sep 2021</div>
+            <div class="exp-toggle">+</div>
+          </div>
+        </div>
+        <div class="exp-body">
+          <ul>
+            <li><span>Managed end-to-end accounting and MIS reporting for an IT services company, while supporting a
+                gaming startup with financial reporting and compliance (GST, TDS).</span></li>
+            <li><span>Automated payroll-related processes using VBA, improving efficiency and reducing errors.</span>
+            </li>
+            <li><span>Awarded Most Efficient Article at JSS Pro.</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-card" onclick="toggle(this)">
+        <div class="exp-head">
+          <div class="exp-left">
+            <div class="exp-role">Article Assistant – Auditing</div>
+            <div class="exp-company">Rao &amp; Kumar Associates · 50-year CA Firm</div>
+            <div class="exp-meta">Hyderabad, India</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.3rem">
+            <div class="exp-dates">Sep 2019 – Feb 2020</div>
+            <div class="exp-toggle">+</div>
+          </div>
+        </div>
+        <div class="exp-body">
+          <ul>
+            <li><span>Conducted internal audits for listed and private companies including HBL Ltd. and Celkon LLP,
+                identifying control gaps and areas for improvement.</span></li>
+            <li><span>Prepared audit documentation and supported recommendations to strengthen internal controls and
+                financial reporting.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="reveal">
+      <div class="section-label">What I've built</div>
+      <div class="section-title">Projects</div>
+    </div>
+    <div class="exp-grid reveal">
+      <div class="exp-card" onclick="toggle(this)">
+        <div class="exp-head">
+          <div class="exp-left">
+            <div class="exp-role">VyneraFlow – The Money Tracker</div>
+            <div class="exp-company">Android App (Play Store)</div>
+            <div class="exp-meta">Product &amp; Innovation</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.3rem">
+            <div class="exp-dates">Dec 2025 – Mar 2026</div>
+            <div class="exp-toggle">+</div>
+          </div>
+        </div>
+        <div class="exp-body">
+          <ul>
+            <li><span>Designed and launched an Android-based money tracking application with automated SMS-based
+                transaction capture and categorisation.</span></li>
+            <li><span>Owned the product requirements, feature design, and roadmap, leveraging ChatGPT and Gemini;
+                implemented end-to-end using Android Studio (Gemini agent) and Google Stitch for UI design.</span></li>
+            <li><span>Delivered a production-grade application at zero build cost using $300 Google trial credits —
+                demonstrating cost-efficient, AI-driven product delivery.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- SKILLS -->
+  <section id="skills" style="background:var(--bg2)">
+    <div style="max-width:1100px;margin:0 auto">
+      <div class="reveal">
+        <div class="section-label">What I work with</div>
+        <div class="section-title">Skills</div>
+      </div>
+      <div class="skills-grid reveal">
+        <div class="skill-card">
+          <div class="skill-cat">Finance</div>
+          <div class="skill-tags">
+            <span class="stag">FP&A</span>
+            <span class="stag">Financial Modelling</span>
+            <span class="stag">Budgeting & Forecasting</span>
+            <span class="stag">Variance Analysis</span>
+            <span class="stag">Driver-Based Models</span>
+            <span class="stag">P&L Reporting</span>
+            <span class="stag">MIS Reporting</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-cat">Tools & Platforms</div>
+          <div class="skill-tags">
+            <span class="stag">Power BI</span>
+            <span class="stag">IBM Planning Analytics</span>
+            <span class="stag">Advanced Excel</span>
+            <span class="stag">Power Automate</span>
+            <span class="stag">Copilot Studio</span>
+            <span class="stag">Oracle Essbase</span>
+            <span class="stag">SAP</span>
+            <span class="stag">Peoplesoft</span>
+            <span class="stag">Azure Cloud</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-cat">Programming</div>
+          <div class="skill-tags">
+            <span class="stag hot">Python</span>
+            <span class="stag">SQL</span>
+            <span class="stag">Power Query</span>
+            <span class="stag">Android Studio</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-cat">Soft Skills</div>
+          <div class="skill-tags">
+            <span class="stag">Stakeholder Engagement</span>
+            <span class="stag">Cross-Functional Collaboration</span>
+            <span class="stag">Ownership Mindset</span>
+            <span class="stag">Rapid Learning</span>
+            <span class="stag">Process Improvement</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="reveal">
+      <div class="section-label">Academic background</div>
+      <div class="section-title">Education</div>
+    </div>
+    <div class="edu-grid reveal">
+      <div class="edu-row">
+        <div class="edu-dot"></div>
+        <div class="edu-year">2024</div>
+        <div>
+          <div class="edu-degree">Chartered Accountant</div>
+          <div class="edu-inst">Institute of Chartered Accountants of India (ICAI)</div>
+        </div>
+      </div>
+      <div class="edu-row">
+        <div class="edu-dot" style="background:var(--muted)"></div>
+        <div class="edu-year">2023</div>
+        <div>
+          <div class="edu-degree">Bachelor of Commerce</div>
+          <div class="edu-inst">Indira Gandhi National Open University (IGNOU)</div>
+        </div>
+      </div>
+      <div class="edu-row">
+        <div class="edu-dot" style="background:var(--muted)"></div>
+        <div class="edu-year">2017</div>
+        <div>
+          <div class="edu-degree">Class XII · MPC</div>
+          <div class="edu-inst">AP Inter Board</div>
+        </div>
+      </div>
+      <div class="edu-row">
+        <div class="edu-dot" style="background:var(--muted)"></div>
+        <div class="edu-year">2015</div>
+        <div>
+          <div class="edu-degree">Class X</div>
+          <div class="edu-inst">CBSE</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ACHIEVEMENTS -->
+  <section id="achievements" style="background:var(--bg2)">
+    <div style="max-width:1100px;margin:0 auto">
+      <div class="reveal">
+        <div class="section-label">Milestones</div>
+        <div class="section-title">Achievements</div>
+      </div>
+      <div class="ach-grid reveal">
+        <div class="ach-card">
+          <div class="ach-icon">📊</div>
+          <div class="ach-text">Built a <strong style="color:var(--text)">Power BI interactive resume</strong> that
+            directly secured a global FP&A role at a Fortune 500 organisation as an early-career professional.</div>
+        </div>
+        <div class="ach-card">
+          <div class="ach-icon">⚡</div>
+          <div class="ach-text"><strong style="color:var(--text)">Promoted within one appraisal cycle</strong> — an
+            accelerated progression reflecting strong performance and measurable impact at Optum.</div>
+        </div>
+        <div class="ach-card">
+          <div class="ach-icon">👥</div>
+          <div class="ach-text"><strong style="color:var(--text)">Led a team of 8 members</strong> in the Stock Audit of
+            ITC Ltd., managing coordination and deliverables end-to-end.</div>
+        </div>
+        <div class="ach-card">
+          <div class="ach-icon">🌟</div>
+          <div class="ach-text">Received <strong style="color:var(--text)">multiple Bravo awards</strong> from internal
+            teams at Optum for automation initiatives and cross-team support.</div>
+        </div>
+        <div class="ach-card">
+          <div class="ach-icon">🏆</div>
+          <div class="ach-text">Awarded <strong style="color:var(--text)">Most Efficient Article</strong> at JSS Pro —
+            recognised for exceptional output and work quality.</div>
+        </div>
+        <div class="ach-card">
+          <div class="ach-icon">🏔</div>
+          <div class="ach-text">Completed the <strong style="color:var(--text)">Everest Base Camp Trek</strong> solo — a
+            testament to endurance, planning, and a relentless pursuit of challenges.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- CERTIFICATIONS -->
+  <section id="certifications">
+    <div class="reveal">
+      <div class="section-label">Continuous Learning</div>
+      <div class="section-title">Certifications</div>
+    </div>
+    <div class="edu-grid reveal">
+      <div class="edu-row">
+        <div class="edu-dot"></div>
+        <div>
+          <div class="edu-degree">Microsoft Azure Cloud Fundamentals</div>
+        </div>
+      </div>
+      <div class="edu-row">
+        <div class="edu-dot"></div>
+        <div>
+          <div class="edu-degree">Microsoft Power BI Essentials</div>
+        </div>
+      </div>
+      <div class="edu-row">
+        <div class="edu-dot"></div>
+        <div>
+          <div class="edu-degree">Advanced Excel</div>
+        </div>
+      </div>
+      <div class="edu-row">
+        <div class="edu-dot"></div>
+        <div>
+          <div class="edu-degree">Python Basics</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ADDITIONAL -->
+  <section id="additional" style="background:var(--bg2)">
+    <div class="reveal">
+      <div class="section-label">Beyond work</div>
+      <div class="section-title">Additional</div>
+    </div>
+    <div class="extra-grid reveal">
+      <div class="extra-block">
+        <div class="extra-label">Languages</div>
+        <div class="extra-items">
+          <span class="extra-item">English — Fluent</span>
+          <span class="extra-item">Hindi — Fluent</span>
+          <span class="extra-item">Telugu — Native</span>
+        </div>
+      </div>
+      <div class="extra-block">
+        <div class="extra-label">Interests</div>
+        <div class="extra-items">
+          <span class="extra-item">Technology</span>
+          <span class="extra-item">Business</span>
+          <span class="extra-item">Fitness</span>
+          <span class="extra-item">Travel (10+ Indian states, multiple countries)</span>
+          <span class="extra-item">Photography</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer id="contact">
+    <p style="margin-bottom:.4rem;font-family:'Playfair Display',serif;font-size:1rem;color:var(--text)">Anjuri Pavan
+      Sai Kumar</p>
+    <p>anjuripavan@mail.ca.in · +91 8331 840 881 · <a
+        href="https://linkedin.com/in/anjuripavan">linkedin.com/in/anjuripavan</a></p>
+  </footer>
+  <script>
+    function toggle(card) {
+      const isOpen = card.classList.contains('open');
+      document.querySelectorAll('.exp-card.open').forEach(c => {
+        c.classList.remove('open');
+      });
+      if (!isOpen) card.classList.add('open');
+    }
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          // stagger children
+          e.target.querySelectorAll('.exp-card, .skill-card, .edu-row, .ach-card, .extra-block').forEach((el, i) => {
+            el.style.transitionDelay = (i * 0.07) + 's';
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(16px)';
+            el.style.transition = 'opacity .5s ease, transform .5s ease';
+            requestAnimationFrame(() => {
+              el.style.opacity = '1';
+              el.style.transform = 'none';
+            });
+          });
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
 </body>
+
 </html>
