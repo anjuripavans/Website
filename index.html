@@ -6,140 +6,179 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CA Anjuri Pavan Sai Kumar – Resume</title>
   <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Fira+Code:wght@300..700&display=swap"
     rel="stylesheet" />
   <style>
     * {
       margin: 0;
       padding: 0;
-      box-sizing: border-box
+      box-sizing: border-box;
     }
 
     :root {
-      --bg: #0d0f12;
-      --bg2: #13161b;
-      --bg3: #1a1e25;
-      --teal: #2dd4bf;
-      --teal2: #0f9484;
-      --coral: #f97066;
-      --text: #e8eaf0;
-      --muted: #8b90a0;
-      --border: #252a35;
-      --card: #161b24;
+      --bg-dark: #07090e;
+      --bg-card: rgba(13, 17, 28, 0.7);
+      --bg-card-hover: rgba(20, 27, 45, 0.85);
+      --border-color: rgba(255, 255, 255, 0.06);
+      --border-color-hover: rgba(0, 242, 254, 0.35);
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --accent-teal: #00f2fe;
+      --accent-blue: #4facfe;
+      --accent-green: #10b981;
+      --accent-coral: #f97066;
+      --gradient-accent: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+      --gradient-bg: radial-gradient(circle at 50% 0%, #161e31 0%, #07090e 75%);
     }
 
     html {
-      scroll-behavior: smooth
+      scroll-behavior: smooth;
     }
 
     body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'DM Sans', sans-serif;
+      background: var(--bg-dark);
+      background-image: var(--gradient-bg);
+      background-attachment: fixed;
+      color: var(--text-primary);
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 15px;
-      line-height: 1.7
+      line-height: 1.7;
+      overflow-x: hidden;
     }
 
     a {
-      color: var(--teal);
-      text-decoration: none
+      color: var(--accent-teal);
+      text-decoration: none;
+      transition: color 0.2s ease, opacity 0.2s ease;
     }
 
     a:hover {
-      opacity: .8
+      opacity: .85;
+      color: var(--accent-blue);
     }
 
-    /* NAV */
+    *:focus-visible {
+      outline: 2px solid var(--accent-teal);
+      outline-offset: 4px;
+    }
+
+    /* Full-width Glassmorphic Navbar */
     nav {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
-      z-index: 100;
-      background: rgba(13, 15, 18, .92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      background: rgba(7, 9, 14, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-color);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: .8rem 4rem
+      padding: 1.2rem 6rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    nav.scrolled {
+      padding: 0.8rem 6rem;
+      background: rgba(7, 9, 14, 0.92);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     }
 
     .nav-name {
       font-family: 'Playfair Display', serif;
-      font-size: 1.05rem;
-      color: var(--teal)
+      font-size: 1.15rem;
+      font-weight: 700;
+      background: var(--gradient-accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: .02em;
     }
 
     .nav-links {
       display: flex;
-      gap: 1.5rem;
+      gap: 1.25rem;
       flex-wrap: wrap;
       justify-content: flex-end;
     }
 
     .nav-links a {
-      color: var(--muted);
-      font-size: .85rem;
-      font-weight: 500;
+      color: var(--text-secondary);
+      font-size: .82rem;
+      font-weight: 600;
       letter-spacing: .04em;
-      transition: .2s
+      transition: color 0.2s ease, transform 0.2s ease;
     }
 
     .nav-links a:hover {
-      color: var(--text)
+      color: var(--text-primary);
     }
 
     /* HERO */
     .hero {
-      min-height: 85vh;
+      min-height: 90vh;
       display: flex;
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
-      gap: 3rem;
-      padding: 6rem 6rem 3rem;
+      gap: 4rem;
+      padding: 8rem 6rem 4rem;
       max-width: 1400px;
-      margin: 0 auto
+      margin: 0 auto;
     }
 
     .hero-content {
-      flex: 1
+      flex: 1;
     }
 
     .hero-tag {
       font-size: .8rem;
-      font-weight: 500;
+      font-weight: 600;
       letter-spacing: .15em;
-      color: var(--teal);
+      color: var(--accent-teal);
       text-transform: uppercase;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.2rem;
       opacity: 0;
-      animation: fadeUp .6s .2s forwards
+      animation: fadeUp .6s .2s forwards;
     }
 
     .hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2.8rem, 6vw, 5rem);
-      font-weight: 600;
-      line-height: 1.1;
-      margin-bottom: 1.5rem;
+      font-size: clamp(2.6rem, 5.5vw, 4.5rem);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 1.2rem;
       opacity: 0;
-      animation: fadeUp .6s .4s forwards
+      animation: fadeUp .6s .4s forwards;
     }
 
     .hero h1 span {
-      color: var(--teal)
+      background: var(--gradient-accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: .95rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      margin-bottom: 1.8rem;
+      letter-spacing: .04em;
+      opacity: 0;
+      animation: fadeUp .6s .5s forwards;
     }
 
     .hero-summary {
       max-width: 680px;
-      color: var(--muted);
-      font-size: 1.05rem;
+      color: var(--text-secondary);
+      font-size: 1.02rem;
       line-height: 1.8;
       opacity: 0;
       animation: fadeUp .6s .6s forwards;
-      margin-bottom: 2.5rem
+      margin-bottom: 2.2rem;
     }
 
     .hero-chips {
@@ -148,474 +187,26 @@
       gap: .6rem;
       opacity: 0;
       animation: fadeUp .6s .8s forwards;
-      margin-bottom: 3rem
+      margin-bottom: 3rem;
     }
 
     .chip {
-      padding: .35rem .9rem;
-      border: 1px solid var(--border);
+      padding: .4rem .9rem;
+      border: 1px solid var(--border-color);
       border-radius: 999px;
       font-size: .8rem;
-      color: var(--muted);
-      background: var(--bg2);
-      transition: .2s;
+      font-weight: 500;
+      color: var(--text-secondary);
+      background: rgba(255, 255, 255, 0.02);
+      transition: all 0.2s ease;
       cursor: pointer;
     }
 
     .chip:hover {
-      border-color: rgba(249, 112, 102, .3);
-      color: var(--coral);
-      background: rgba(249, 112, 102, .07);
-    }
-
-    .hero-contacts {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      justify-content: center;
-      opacity: 0;
-      animation: fadeUp .6s 1s forwards;
-    }
-
-    .hero-contacts a {
-      color: var(--muted);
-      font-size: .85rem;
-      display: flex;
-      align-items: center;
-      gap: .4rem;
-      transition: .2s
-    }
-
-    .hero-contacts a:hover {
-      color: var(--teal)
-    }
-
-    .scroll-hint {
-      position: absolute;
-      bottom: 2.5rem;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: .4rem;
-      color: var(--muted);
-      font-size: .75rem;
-      opacity: 0;
-      animation: fadeIn 1s 1.5s forwards
-    }
-
-    .scroll-line {
-      width: 1px;
-      height: 40px;
-      background: linear-gradient(var(--teal), transparent)
-    }
-
-    /* SECTIONS */
-    section {
-      padding: 4rem 6rem;
-      max-width: 1400px;
-      margin: 0 auto
-    }
-
-    .section-label {
-      font-size: .75rem;
-      letter-spacing: .15em;
-      text-transform: uppercase;
-      color: var(--teal);
-      font-weight: 500;
-      margin-bottom: .4rem
-    }
-
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      margin-bottom: 2rem;
-      position: relative;
-      display: inline-block
-    }
-
-    .section-title::after {
-      content: '';
-      position: absolute;
-      bottom: -8px;
-      left: 0;
-      width: 40px;
-      height: 2px;
-      background: var(--teal)
-    }
-
-    /* EXPERIENCE */
-    .exp-grid {
-      display: grid;
-      gap: 1rem
-    }
-
-    .exp-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1.2rem 1.5rem;
-      cursor: pointer;
-      transition: .25s;
-      position: relative;
-      overflow: hidden
-    }
-
-    .exp-card::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 3px;
-      background: var(--teal);
-      opacity: 0;
-      transition: .25s
-    }
-
-    .exp-card:hover,
-    .exp-card.open {
-      border-color: rgba(45, 212, 191, .25);
-      background: #161e28
-    }
-
-    .exp-card:hover::before,
-    .exp-card.open::before {
-      opacity: 1
-    }
-
-    .exp-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 1rem
-    }
-
-    .exp-left {
-      flex: 1
-    }
-
-    .exp-role {
-      font-weight: 500;
-      font-size: 1rem;
-      color: var(--text)
-    }
-
-    .exp-company {
-      color: var(--teal);
-      font-size: .9rem;
-      margin-top: .2rem
-    }
-
-    .exp-meta {
-      font-size: .8rem;
-      color: var(--muted);
-      margin-top: .25rem
-    }
-
-    .exp-dates {
-      font-size: .82rem;
-      color: var(--muted);
-      white-space: nowrap;
-      margin-top: .2rem;
-      font-family: 'DM Mono', monospace
-    }
-
-    .exp-toggle {
-      color: var(--muted);
-      font-size: 1.2rem;
-      transition: .3s;
-      flex-shrink: 0
-    }
-
-    .exp-card.open .exp-toggle {
-      transform: rotate(45deg);
-      color: var(--teal)
-    }
-
-    .exp-body {
-      display: none;
-      margin-top: 1.2rem;
-      padding-top: 1.2rem;
-      border-top: 1px solid var(--border)
-    }
-
-    .exp-card.open .exp-body {
-      display: block
-    }
-
-    .exp-body ul {
-      list-style: none;
-      display: grid;
-      gap: .7rem
-    }
-
-    .exp-body ul li {
-      display: flex;
-      gap: .7rem;
-      font-size: .9rem;
-      color: #b0b5c5;
-      line-height: 1.6
-    }
-
-    .exp-body ul li::before {
-      content: '→';
-      color: var(--teal);
-      flex-shrink: 0;
-      margin-top: .05rem
-    }
-
-    .exp-body ul li strong {
-      color: var(--text);
-      font-weight: 500
-    }
-
-    .badge {
-      display: inline-block;
-      padding: .15rem .6rem;
-      border-radius: 4px;
-      font-size: .72rem;
-      font-weight: 500;
-      background: rgba(45, 212, 191, .1);
-      color: var(--teal);
-      border: 1px solid rgba(45, 212, 191, .2);
-      margin-left: .4rem;
-      vertical-align: middle
-    }
-
-    /* SKILLS */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.2rem
-    }
-
-    .skill-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.5rem
-    }
-
-    .skill-cat {
-      font-size: .75rem;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: var(--teal);
-      font-weight: 500;
-      margin-bottom: 1rem
-    }
-
-    .skill-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .5rem
-    }
-
-    .stag {
-      padding: .3rem .75rem;
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      font-size: .8rem;
-      color: var(--muted);
-      transition: .2s;
-    }
-
-    .stag:hover {
-      border-color: rgba(249, 112, 102, .3);
-      color: #f97066;
-      background: rgba(249, 112, 102, .07);
-    }
-
-    /* EDUCATION */
-    .edu-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1rem
-    }
-
-    .edu-row {
-      display: flex;
-      gap: 1.5rem;
-      align-items: center;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1.2rem 1.5rem
-    }
-
-    .edu-year {
-      font-family: 'DM Mono', monospace;
-      font-size: .82rem;
-      color: var(--teal);
-      min-width: 60px
-    }
-
-    .edu-degree {
-      font-weight: 500;
-      font-size: .95rem
-    }
-
-    .edu-inst {
-      font-size: .85rem;
-      color: var(--muted);
-      margin-top: .15rem
-    }
-
-    .edu-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--teal);
-      flex-shrink: 0
-    }
-
-    /* ACHIEVEMENTS */
-    .ach-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1rem
-    }
-
-    .ach-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1.3rem;
-      transition: .2s
-    }
-
-    .ach-card:hover {
-      border-color: rgba(45, 212, 191, .3);
-      transform: translateY(-2px)
-    }
-
-    .ach-icon {
-      font-size: 1.3rem;
-      margin-bottom: .7rem
-    }
-
-    .ach-text {
-      font-size: .88rem;
-      color: #b0b5c5;
-      line-height: 1.6
-    }
-
-    /* EXTRA */
-    .extra-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem
-    }
-
-    .extra-block {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1.2rem
-    }
-
-    .extra-label {
-      font-size: .72rem;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--teal);
-      margin-bottom: .6rem
-    }
-
-    .extra-items {
-      display: flex;
-      flex-direction: column;
-      gap: .35rem
-    }
-
-    .extra-item {
-      font-size: .88rem;
-      color: var(--muted)
-    }
-
-    /* FOOTER */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 2rem 6rem;
-      text-align: center;
-      color: var(--muted);
-      font-size: .82rem
-    }
-
-    /* ANIMATIONS */
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(18px)
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0)
-      }
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0
-      }
-
-      to {
-        opacity: 1
-      }
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity .6s ease, transform .6s ease
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: none
-    }
-
-    @media(max-width:768px) {
-      nav {
-        padding: .8rem 1.5rem
-      }
-
-      .nav-links {
-        gap: 1rem
-      }
-
-      .hero,
-      section {
-        padding: 5rem 1.5rem 3rem
-      }
-
-      .hero {
-        flex-direction: column-reverse;
-        text-align: center;
-        gap: 2rem
-      }
-
-      .hero-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center
-      }
-
-      .hero-chips {
-        justify-content: center
-      }
-
-      .hero-contacts {
-        justify-content: center
-      }
-
-      footer {
-        padding: 2rem 1.5rem
-      }
+      border-color: rgba(249, 112, 102, 0.4);
+      color: var(--accent-coral);
+      background: rgba(249, 112, 102, 0.08);
+      transform: translateY(-1px);
     }
 
     .profile-pic-container {
@@ -626,27 +217,647 @@
       flex-direction: column;
       align-items: center;
       gap: 1.5rem;
+      position: relative;
+    }
+
+    .profile-pic-wrapper {
+      position: relative;
+      border-radius: 20px;
+      padding: 4px;
+      background: linear-gradient(135deg, var(--accent-teal) 0%, var(--accent-blue) 100%);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 0 30px rgba(0, 242, 254, 0.12);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .profile-pic-wrapper:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 242, 254, 0.22);
     }
 
     .profile-pic {
       width: 300px;
       height: 470px;
       border-radius: 16px;
-      border: 2px solid var(--teal);
       object-fit: cover;
-      box-shadow: 0 0 40px rgba(45, 212, 191, 0.12), 0 8px 32px rgba(0, 0, 0, 0.4);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: block;
     }
 
-    .profile-pic:hover {
-      transform: scale(1.03);
-      box-shadow: 0 0 50px rgba(45, 212, 191, 0.2), 0 12px 40px rgba(0, 0, 0, 0.5);
+    .hero-contacts {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .hero-contacts a {
+      color: var(--text-secondary);
+      font-size: .85rem;
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+      transition: color 0.2s ease;
+    }
+
+    .hero-contacts a:hover {
+      color: var(--accent-teal);
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .5rem;
+      color: var(--text-muted);
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0;
+      animation: fadeIn 1s 1.5s forwards;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(var(--accent-teal), transparent);
+      animation: scrollMove 2.2s infinite ease-in-out;
+    }
+
+    @keyframes scrollMove {
+      0% {
+        transform: scaleY(0);
+        transform-origin: top;
+      }
+
+      50% {
+        transform: scaleY(1);
+        transform-origin: top;
+      }
+
+      50.1% {
+        transform: scaleY(1);
+        transform-origin: bottom;
+      }
+
+      100% {
+        transform: scaleY(0);
+        transform-origin: bottom;
+      }
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 4.5rem 6rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      scroll-margin-top: 6rem;
+    }
+
+    .section-label {
+      display: block;
+      font-size: .75rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--accent-teal);
+      font-weight: 600;
+      margin-bottom: .5rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 2.5rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 45px;
+      height: 3px;
+      background: var(--gradient-accent);
+      border-radius: 99px;
+    }
+
+    /* EXPERIENCE & PROJECTS */
+    .exp-grid {
+      display: grid;
+      gap: 1.2rem;
+    }
+
+    .exp-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 1.4rem 1.8rem;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      position: relative;
+    }
+
+    .exp-card::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: var(--gradient-accent);
+      border-radius: 14px 0 0 14px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    /* Tooltip styles */
+    [data-tooltip] {
+      position: relative;
+    }
+
+    [data-tooltip]::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: 130%;
+      left: 50%;
+      transform: translateX(-50%) translateY(4px);
+      background: rgba(13, 17, 28, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      color: var(--text-primary);
+      border: 1px solid var(--border-color-hover);
+      padding: 0.35rem 0.75rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease, transform 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      z-index: 1000;
+    }
+
+    [data-tooltip]:hover::after {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .exp-card:hover {
+      border-color: var(--border-color-hover);
+      background: var(--bg-card-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0, 242, 254, 0.06);
+    }
+
+    .exp-card.open {
+      border-color: var(--border-color-hover);
+      background: var(--bg-card-hover);
+    }
+
+    .exp-card:hover::before,
+    .exp-card.open::before {
+      opacity: 1;
+    }
+
+    .exp-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .exp-left {
+      flex: 1;
+    }
+
+    .exp-role {
+      font-weight: 600;
+      font-size: 1.12rem;
+      color: var(--text-primary);
+    }
+
+    .exp-company {
+      background: var(--gradient-accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 600;
+      font-size: 0.98rem;
+      margin-top: .25rem;
+      display: inline-block;
+    }
+
+    .exp-meta {
+      font-size: .85rem;
+      color: var(--text-secondary);
+      margin-top: .25rem;
+    }
+
+    .exp-dates {
+      font-size: .82rem;
+      color: var(--accent-teal);
+      white-space: nowrap;
+      margin-top: .2rem;
+      font-family: 'Fira Code', monospace;
+    }
+
+    .exp-toggle {
+      color: var(--text-secondary);
+      font-size: 1.3rem;
+      transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), color 0.2s;
+      flex-shrink: 0;
+      line-height: 1;
+      font-weight: 300;
+    }
+
+    .exp-card.open .exp-toggle {
+      transform: rotate(45deg);
+      color: var(--accent-teal);
+    }
+
+    .exp-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.3s ease;
+      opacity: 0;
+    }
+
+    .exp-card.open .exp-body {
+      max-height: 1000px;
+      opacity: 1;
+      margin-top: 1.4rem;
+      padding-top: 1.4rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .exp-body ul {
+      list-style: none;
+      display: grid;
+      gap: .8rem;
+    }
+
+    .exp-body ul li {
+      display: flex;
+      gap: .8rem;
+      font-size: .92rem;
+      color: var(--text-secondary);
+      line-height: 1.62;
+    }
+
+    .exp-body ul li::before {
+      content: '✦';
+      color: var(--accent-teal);
+      flex-shrink: 0;
+      margin-top: .15rem;
+      font-size: .75rem;
+    }
+
+    .exp-body ul li strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: .15rem .6rem;
+      border-radius: 4px;
+      font-size: .7rem;
+      font-weight: 600;
+      background: rgba(0, 242, 254, 0.1);
+      color: var(--accent-teal);
+      border: 1px solid rgba(0, 242, 254, 0.2);
+      margin-left: .5rem;
+      vertical-align: middle;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+
+    /* SKILLS */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 1.6rem;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .skill-card:hover {
+      border-color: rgba(255, 255, 255, 0.15);
+      transform: translateY(-2px);
+    }
+
+    .skill-cat {
+      font-size: .78rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--accent-teal);
+      font-weight: 600;
+      margin-bottom: 1.2rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .55rem;
+    }
+
+    .stag {
+      padding: .35rem .85rem;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      font-size: .8rem;
+      color: var(--text-secondary);
+      transition: all 0.25s ease;
+    }
+
+    .stag:hover {
+      border-color: rgba(249, 112, 102, 0.3);
+      color: var(--accent-coral);
+      background: rgba(249, 112, 102, 0.06);
+    }
+
+
+
+    /* EDUCATION & CERTIFICATIONS */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .edu-row {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.4rem 1.6rem;
+      transition: all 0.3s ease;
+    }
+
+    .edu-row:hover {
+      border-color: rgba(255, 255, 255, 0.15);
+      transform: translateY(-2px);
+    }
+
+    .edu-year {
+      font-family: 'Fira Code', monospace;
+      font-size: .82rem;
+      color: var(--accent-teal);
+      min-width: 60px;
+    }
+
+    .edu-degree {
+      font-weight: 600;
+      font-size: .98rem;
+      color: var(--text-primary);
+    }
+
+    .edu-inst {
+      font-size: .85rem;
+      color: var(--text-secondary);
+      margin-top: .2rem;
+    }
+
+    .edu-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-teal);
+      flex-shrink: 0;
+      box-shadow: 0 0 10px rgba(0, 242, 254, 0.6);
+    }
+
+    /* ACHIEVEMENTS */
+    .ach-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .ach-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    .ach-card:hover {
+      border-color: var(--border-color-hover);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(0, 242, 254, 0.05);
+    }
+
+    .ach-icon {
+      font-size: 1.4rem;
+      margin-bottom: .8rem;
+    }
+
+    .ach-text {
+      font-size: .9rem;
+      color: var(--text-secondary);
+      line-height: 1.62;
+    }
+
+    /* EXTRA / ADDITIONAL */
+    .extra-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .extra-block {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.4rem;
+    }
+
+    .extra-block.double {
+      grid-column: span 2;
+    }
+
+    .extra-label {
+      font-size: .75rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--accent-teal);
+      font-weight: 600;
+      margin-bottom: .8rem;
+    }
+
+    .extra-items {
+      display: flex;
+      flex-direction: column;
+      gap: .45rem;
+    }
+
+    .extra-item {
+      font-size: .9rem;
+      color: var(--text-secondary);
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border-color);
+      background: rgba(5, 7, 10, 0.95);
+      padding: 3rem 6rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: .85rem;
+    }
+
+    footer p a {
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    footer p a:hover {
+      color: var(--accent-teal);
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity .7s cubic-bezier(0.215, 0.61, 0.355, 1), transform .7s cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* JS Stagger Animations */
+    .js-enabled .reveal .exp-card,
+    .js-enabled .reveal .skill-card,
+    .js-enabled .reveal .edu-row,
+    .js-enabled .reveal .ach-card,
+    .js-enabled .reveal .extra-block {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.5s cubic-bezier(0.215, 0.61, 0.355, 1), transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+
+    .reveal.visible .exp-card,
+    .reveal.visible .skill-card,
+    .reveal.visible .edu-row,
+    .reveal.visible .ach-card,
+    .reveal.visible .extra-block {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* RESPONSIVE LAYOUT */
+    @media(max-width:992px) {
+      .hero {
+        gap: 3rem;
+        padding: 8rem 4rem 4rem;
+      }
+    }
+
+    @media(max-width:768px) {
+      .extra-block.double {
+        grid-column: span 1;
+      }
+
+      nav {
+        padding: 0.8rem 1.5rem;
+      }
+
+      nav.scrolled {
+        padding: 0.8rem 1.5rem;
+      }
+
+      .nav-links {
+        gap: .8rem;
+      }
+
+      .nav-links a {
+        font-size: .75rem;
+      }
+
+      .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 3rem;
+        padding: 7rem 1.5rem 3rem;
+      }
+
+      .hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero-chips {
+        justify-content: center;
+      }
+
+      .hero-contacts {
+        justify-content: center;
+      }
+
+      .profile-pic-wrapper {
+        max-width: 300px;
+      }
+
+      .profile-pic {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 300 / 470;
+      }
+
+      section {
+        padding: 3rem 1.5rem;
+      }
+
+      footer {
+        padding: 3rem 1.5rem;
+      }
     }
   </style>
 </head>
 
 <body>
-  <nav>
+  <nav id="navbar">
     <span class="nav-name">Anjuri Pavan</span>
     <div class="nav-links">
       <a href="#experience">Experience</a>
@@ -654,25 +865,24 @@
       <a href="#skills">Skills</a>
       <a href="#education">Education</a>
       <a href="#achievements">Achievements</a>
-      <a href="#certifications">Certifications</a>
       <a href="#additional">Additional</a>
       <a href="#contact">Contact</a>
     </div>
   </nav>
+
   <div style="position:relative">
     <div class="hero">
       <div class="hero-content">
         <div class="hero-tag">Chartered Accountant (ACA - ICAI) · FP&amp;A · Finance + Technology</div>
         <h1>Anjuri<br /><span>Pavan Sai Kumar</span></h1>
-        <div
-          style="font-size:.9rem;color:var(--muted);margin-bottom:1.8rem;letter-spacing:.04em;opacity:0;animation:fadeUp .6s .5s forwards">
-          Advanced Analytics · Automation · AI-Enabled Finance</div>
+        <div class="hero-subtitle">
+          Advanced Analytics · Automation · AI-Enabled Finance
+        </div>
         <p class="hero-summary">
           Chartered Accountant with experience in FP&amp;A and finance transformation, combining deep finance
-          fundamentals
-          with advanced analytics, automation, and AI-enabled solutions. Proven ability to bridge core finance and
-          technology, driving automation, operational efficiency, and decision-ready insights. Recognized for ownership
-          mindset, rapid learning, and early leadership exposure within a Fortune 500 environment.
+          fundamentals with advanced analytics, automation, and AI-enabled solutions. Proven ability to bridge core
+          finance and technology, driving automation, operational efficiency, and decision-ready insights. Recognized
+          for ownership mindset, rapid learning, and early leadership exposure within a Fortune 500 environment.
         </p>
         <div class="hero-chips">
           <span class="chip">FP&amp;A</span>
@@ -686,29 +896,35 @@
         </div>
       </div>
       <div class="profile-pic-container">
-        <img src="Image.png" alt="Anjuri Pavan Sai Kumar" class="profile-pic">
+        <div class="profile-pic-wrapper">
+          <img src="Image.png" alt="Anjuri Pavan Sai Kumar" class="profile-pic">
+        </div>
         <div class="hero-contacts">
           <a href="mailto:anjuripavan@mail.ca.in">✉ anjuripavan@mail.ca.in</a>
           <a href="tel:+918331840881">✆ +91 8331 840 881</a>
-          <a href="https://linkedin.com/in/anjuripavan" target="_blank">⟶ LinkedIn</a>
-          <span style="color:var(--muted);font-size:.85rem;display:flex;align-items:center;gap:.4rem">⬡ Hyderabad,
-            India</span>
+          <a href="https://linkedin.com/in/anjuripavan" target="_blank" rel="noopener noreferrer">⟶ LinkedIn</a>
+          <span style="color:var(--text-secondary);font-size:.85rem;display:flex;align-items:center;gap:.4rem">⬡
+            Hyderabad, India</span>
         </div>
       </div>
     </div>
-
+    <div class="scroll-hint">
+      <span>Scroll to explore</span>
+      <div class="scroll-line"></div>
+    </div>
   </div>
+
   <!-- EXPERIENCE -->
   <section id="experience">
     <div class="reveal">
-      <div class="section-label">Where I've worked</div>
-      <div class="section-title">Experience</div>
+      <span class="section-label">Where I've worked</span>
+      <h2 class="section-title">Experience</h2>
     </div>
     <div class="exp-grid reveal">
       <div class="exp-card" onclick="toggle(this)">
         <div class="exp-head">
           <div class="exp-left">
-            <div class="exp-role">Senior Financial Analyst – FP&amp;A <span class="badge">Current</span></div>
+            <h3 class="exp-role">Senior Financial Analyst – FP&amp;A <span class="badge">Current</span></h3>
             <div class="exp-company">Optum (UnitedHealth Group)</div>
             <div class="exp-meta">Hyderabad, India</div>
           </div>
@@ -720,8 +936,8 @@
         <div class="exp-body">
           <ul>
             <li><span><strong>P&amp;L Dashboard:</strong> Built and manage a centralized Optum Insight P&amp;L dashboard
-                covering $20B+ revenue and 20M+ line items, enabling real-time variance analysis and faster
-                decision-making for senior leadership.</span></li>
+                using PowerBi covering $20B+ revenue and 20M+ line items, enabling real-time variance analysis and
+                faster decision-making for senior leadership.</span></li>
             <li><span><strong>EVI Strategy Group:</strong> Core member of the Enterprise Value &amp; Innovation (EVI)
                 Strategy Group, acting as the internal automation and analytics expert for finance across the Indian
                 finance organization, driving finance transformation initiatives.</span></li>
@@ -729,15 +945,16 @@
                 solutions, owning business logic, data flow, validations, and documentation, ensuring full transparency
                 and explainability for the stakeholders.</span></li>
             <li><span><strong>Vendor Spend Dashboard:</strong> Designed and automated a Vendor Spend Dashboard covering
-                $4B+ in costs, providing insights into top vendor spends, labor vs non-labor breakdown, and
-                market-level decomposition.</span></li>
+                $4B+ in costs, providing insights into top vendor spends, labor vs non-labor breakdown and market level
+                decomposition.</span></li>
           </ul>
         </div>
       </div>
+
       <div class="exp-card" onclick="toggle(this)">
         <div class="exp-head">
           <div class="exp-left">
-            <div class="exp-role">Financial Analyst – FP&amp;A</div>
+            <h3 class="exp-role">Financial Analyst – FP&amp;A</h3>
             <div class="exp-company">Optum (UnitedHealth Group)</div>
             <div class="exp-meta">Hyderabad, India</div>
           </div>
@@ -748,12 +965,11 @@
         </div>
         <div class="exp-body">
           <ul>
-            <li><span><strong>500+ hrs saved:</strong> Led multiple automation initiatives across FP&amp;A workflows
-                delivering 500+ hours of annual efficiency gains using Python, Power BI, and Power Automate.</span>
-            </li>
+            <li><span><strong>500+ hrs saved:</strong> Led multiple automation initiatives across FP&amp;A workflows,
+                delivering 500+ hours of annual efficiency gains using Python, Power BI, and Power Automate.</span></li>
             <li><span><strong>Financial Modelling:</strong> Developed multi-quarter, driver-based financial models
-                covering revenue, cost, and resource planning, enabling leadership to assess transformation initiatives
-                and shifting priorities in a dynamic environment.</span></li>
+                covering revenue, cost, and resource planning, enabling leadership to assess transformation initiatives,
+                shifting priorities in a dynamic environment.</span></li>
             <li><span><strong>Dashboards:</strong> Designed and maintained advanced FP&amp;A dashboards across multiple
                 OI businesses (Advisory, Payment Integrity, RCM), enabling granular variance analysis and
                 leadership-ready reporting.</span></li>
@@ -766,10 +982,11 @@
           </ul>
         </div>
       </div>
+
       <div class="exp-card" onclick="toggle(this)">
         <div class="exp-head">
           <div class="exp-left">
-            <div class="exp-role">Financial Analyst (Freelancer)</div>
+            <h3 class="exp-role">Financial Analyst (Freelancer)</h3>
             <div class="exp-company">Upwork · Remote</div>
           </div>
           <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.3rem">
@@ -779,7 +996,7 @@
         </div>
         <div class="exp-body">
           <ul>
-            <li><span>Built and maintained a global stakeholder tracking dashboard using Excel and Power BI for Drive to
+            <li><span>Built and maintained a global stakeholder tracking dashboard using Excel and PowerBi for Drive to
                 Zero (CALSTART), a US-based clean transportation non-profit, covering 150+ pledge partners and 50+ MOU
                 signatories.</span></li>
             <li><span>Supported clients in Qatar and Australia with financial data analysis and dashboard development,
@@ -788,11 +1005,12 @@
           </ul>
         </div>
       </div>
+
       <div class="exp-card" onclick="toggle(this)">
         <div class="exp-head">
           <div class="exp-left">
-            <div class="exp-role">CA Industrial Trainee – FP&amp;A</div>
-            <div class="exp-company">ITC Limited · $70B Market Cap FMCG</div>
+            <h3 class="exp-role">CA Industrial Trainee – FP&amp;A</h3>
+            <div class="exp-company">ITC Limited </div>
             <div class="exp-meta">Hyderabad, India</div>
           </div>
           <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.3rem">
@@ -803,10 +1021,10 @@
         <div class="exp-body">
           <ul>
             <li><span>Participated in end-to-end budgeting and forecasting cycles, maintained and built multi-functional
-                planning sheets, and facilitated cross-functional alignment calls between departments.</span></li>
-            <li><span>Co-led product costing initiative for a new product, covering competitive benchmarking,
-                unit-level cost build-up, and strategic make-vs-buy analysis evaluating machine acquisition, company
-                acquisition, and hybrid sourcing scenarios.</span></li>
+                planning sheets and facilitated cross-functional alignment calls between departments.</span></li>
+            <li><span>Co-led product costing initiative for a new product, covering competitive benchmarking, unit-level
+                cost build-up, and strategic make-vs-buy analysis evaluating machine acquisition, company acquisition,
+                and hybrid sourcing scenarios.</span></li>
             <li><span>Contributed to process improvements that increased scrap revenue by approximately ₹30M (55%
                 growth).</span></li>
             <li><span>Led Power BI implementation at ITC HQ, enhancing data visualization and reporting for the finance
@@ -814,12 +1032,13 @@
           </ul>
         </div>
       </div>
+
       <div class="exp-card" onclick="toggle(this)">
         <div class="exp-head">
           <div class="exp-left">
-            <div class="exp-role">CA Article Assistant - Consultancy</div>
-            <div class="exp-company">JSS Pro</div>
-            <div class="exp-meta">Hyderabad, India · Leading CA Firm</div>
+            <h3 class="exp-role">CA Article Assistant - Consultancy</h3>
+            <div class="exp-company">JSS Pro </div>
+            <div class="exp-meta">Hyderabad, India</div>
           </div>
           <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.3rem">
             <div class="exp-dates">Mar 2020 – Sep 2021</div>
@@ -831,15 +1050,15 @@
             <li><span>Managed end-to-end accounting and MIS reporting for an IT services company, while supporting a
                 gaming startup with financial reporting and tax compliances.</span></li>
             <li><span>Automated payroll processes using VBA, improving efficiency by 50+ hours and reducing
-                errors.</span>
-            </li>
+                errors.</span></li>
           </ul>
         </div>
       </div>
+
       <div class="exp-card" onclick="toggle(this)">
         <div class="exp-head">
           <div class="exp-left">
-            <div class="exp-role">CA Article Assistant - Audit</div>
+            <h3 class="exp-role">CA Article Assistant - Audit</h3>
             <div class="exp-company">Rao &amp; Kumar Associates</div>
             <div class="exp-meta">Hyderabad, India</div>
           </div>
@@ -859,17 +1078,50 @@
       </div>
     </div>
   </section>
+
   <!-- PROJECTS -->
   <section id="projects">
     <div class="reveal">
-      <div class="section-label">What I've built</div>
-      <div class="section-title">Projects</div>
+      <span class="section-label">What I've built</span>
+      <h2 class="section-title">Projects</h2>
     </div>
     <div class="exp-grid reveal">
       <div class="exp-card" onclick="toggle(this)">
         <div class="exp-head">
           <div class="exp-left">
-            <div class="exp-role">VyneraFlow – The Money Tracker</div>
+            <h3 class="exp-role"><a href="https://mf-expenseratio-tracker.vyneralabs.com/" target="_blank"
+                rel="noopener noreferrer" onclick="event.stopPropagation()" data-tooltip="Visit Live Website ↗"
+                style="color: inherit; text-decoration: underline; text-decoration-color: var(--accent-teal);">Mutual
+                Fund Expense Ratio Tracker ↗</a></h3>
+            <div class="exp-company">Web Application (TER Tracker)</div>
+            <div class="exp-meta">Product &amp; Innovation</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.3rem">
+            <div class="exp-dates">May 2026 – May 2026</div>
+            <div class="exp-toggle">+</div>
+          </div>
+        </div>
+        <div class="exp-body">
+          <ul>
+            <li><span><strong>Automated Pipeline:</strong> Launched an automated tracking portal that pulls daily mutual
+                fund expense ratios (TER) directly from AMFI disclosures, helping investors easily identify and compare
+                low-cost funds.</span></li>
+            <li><span><strong>UX &amp; SEO:</strong> Owned the product design and roadmap using agentic AI to build a
+                responsive web dashboard with interactive charts and public search engine visibility.</span></li>
+            <li><span><strong>Quick Compare:</strong> Developed a "Quick Compare" feature to instantly show the 5
+                cheapest funds in popular categories (like Nifty 50 Index, Flexi Cap, and other funds), implementing
+                automated logic to clean up inconsistencies.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-card" onclick="toggle(this)">
+        <div class="exp-head">
+          <div class="exp-left">
+            <h3 class="exp-role"><a href="https://play.google.com/store/apps/details?id=com.vyneraflow&hl=en_IN"
+                target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" data-tooltip="Open in Google Play Store ↗"
+                style="color: inherit; text-decoration: underline; text-decoration-color: var(--accent-teal);">VyneraFlow
+                – The Money Tracker ↗</a></h3>
             <div class="exp-company">Android App (Play Store)</div>
             <div class="exp-meta">Product &amp; Innovation</div>
           </div>
@@ -885,76 +1137,77 @@
             <li><span>Owned the product requirements, feature design, and roadmap, leveraging ChatGPT and Gemini;
                 implemented end-to-end development using Android Studio (Gemini agent) and UI design via Google
                 Stitch.</span></li>
-            <li><span>Delivered a production-grade application at zero build cost using Google trial credits of $300,
+            <li><span>Delivered a production-grade application at zero build cost, using Google trial credits of $300,
                 demonstrating cost-efficient, AI-driven product delivery.</span></li>
           </ul>
         </div>
       </div>
     </div>
   </section>
+
   <!-- SKILLS -->
-  <section id="skills" style="background:var(--bg2)">
-    <div style="max-width:1100px;margin:0 auto">
-      <div class="reveal">
-        <div class="section-label">What I work with</div>
-        <div class="section-title">Skills</div>
+  <section id="skills">
+    <div class="reveal">
+      <span class="section-label">What I work with</span>
+      <h2 class="section-title">Skills</h2>
+    </div>
+    <div class="skills-grid reveal">
+      <div class="skill-card">
+        <div class="skill-cat">Finance</div>
+        <div class="skill-tags">
+          <span class="stag">FP&amp;A</span>
+          <span class="stag">Financial Modelling</span>
+          <span class="stag">Budgeting &amp; Forecasting</span>
+          <span class="stag">Variance Analysis</span>
+          <span class="stag">Ad-Hoc Analysis</span>
+          <span class="stag">Management Reporting</span>
+          <span class="stag">Revenue Analysis</span>
+          <span class="stag">Cost Analysis</span>
+        </div>
       </div>
-      <div class="skills-grid reveal">
-        <div class="skill-card">
-          <div class="skill-cat">Finance</div>
-          <div class="skill-tags">
-            <span class="stag">FP&A</span>
-            <span class="stag">Financial Modelling</span>
-            <span class="stag">Budgeting & Forecasting</span>
-            <span class="stag">Variance Analysis</span>
-            <span class="stag">Ad-Hoc Analysis</span>
-            <span class="stag">Management Reporting</span>
-            <span class="stag">Revenue Analysis</span>
-            <span class="stag">Cost Analysis</span>
-          </div>
+
+      <div class="skill-card">
+        <div class="skill-cat">Tools &amp; Platforms</div>
+        <div class="skill-tags">
+          <span class="stag">Power BI</span>
+          <span class="stag">Advanced Excel</span>
+          <span class="stag">Power Automate</span>
+          <span class="stag">Python</span>
+          <span class="stag">SQL</span>
+          <span class="stag">Copilot Studio</span>
+          <span class="stag">Microsoft Suite</span>
         </div>
-        <div class="skill-card">
-          <div class="skill-cat">Tools & Platforms</div>
-          <div class="skill-tags">
-            <span class="stag">Power BI</span>
-            <span class="stag">IBM Planning Analytics (TM1)</span>
-            <span class="stag">Advanced Excel</span>
-            <span class="stag">Power Automate</span>
-            <span class="stag">Copilot Studio</span>
-            <span class="stag">Oracle Essbase / Hyperion</span>
-            <span class="stag">SAP</span>
-            <span class="stag">Peoplesoft</span>
-            <span class="stag">Azure Cloud</span>
-            <span class="stag">Microsoft Suite</span>
-          </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-cat">Systems</div>
+        <div class="skill-tags">
+          <span class="stag">Oracle Essbase / Hyperion</span>
+          <span class="stag">IBM Planning Analytics (TM1)</span>
+          <span class="stag">Peoplesoft</span>
+          <span class="stag">Azure Cloud</span>
+          <span class="stag">SAP</span>
         </div>
-        <div class="skill-card">
-          <div class="skill-cat">Programming</div>
-          <div class="skill-tags">
-            <span class="stag hot">Python</span>
-            <span class="stag">SQL</span>
-            <span class="stag">VBA / Macros</span>
-            <span class="stag">Android Studio</span>
-          </div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-cat">Soft Skills</div>
-          <div class="skill-tags">
-            <span class="stag">Stakeholder Engagement</span>
-            <span class="stag">Cross-Functional Collaboration</span>
-            <span class="stag">Ownership Mindset</span>
-            <span class="stag">Rapid Learning</span>
-            <span class="stag">Process Improvement</span>
-          </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-cat">Soft Skills</div>
+        <div class="skill-tags">
+          <span class="stag">Stakeholder Engagement</span>
+          <span class="stag">Cross-Functional Collaboration</span>
+          <span class="stag">Ownership Mindset</span>
+          <span class="stag">Rapid Learning</span>
+          <span class="stag">Process Improvement</span>
         </div>
       </div>
     </div>
   </section>
+
   <!-- EDUCATION -->
   <section id="education">
     <div class="reveal">
-      <div class="section-label">Academic background</div>
-      <div class="section-title">Education</div>
+      <span class="section-label">Academic background</span>
+      <h2 class="section-title">Education</h2>
     </div>
     <div class="edu-grid reveal">
       <div class="edu-row">
@@ -967,7 +1220,7 @@
         </div>
       </div>
       <div class="edu-row">
-        <div class="edu-dot" style="background:var(--muted)"></div>
+        <div class="edu-dot" style="background:var(--text-muted); box-shadow: none;"></div>
         <div class="edu-year">2023</div>
         <div>
           <div class="edu-degree">Bachelor of Commerce - Accounting &amp; Finance</div>
@@ -976,52 +1229,52 @@
       </div>
     </div>
   </section>
+
   <!-- ACHIEVEMENTS -->
-  <section id="achievements" style="background:var(--bg2)">
-    <div style="max-width:1100px;margin:0 auto">
-      <div class="reveal">
-        <div class="section-label">Milestones</div>
-        <div class="section-title">Achievements</div>
+  <section id="achievements">
+    <div class="reveal">
+      <span class="section-label">Milestones</span>
+      <h2 class="section-title">Achievements</h2>
+    </div>
+    <div class="ach-grid reveal">
+      <div class="ach-card">
+        <div class="ach-icon">⚡</div>
+        <div class="ach-text"><strong>Promoted to Senior Financial Analyst in one appraisal cycle</strong> at Optum,
+          reflecting strong performance and early impact.</div>
       </div>
-      <div class="ach-grid reveal">
-        <div class="ach-card">
-          <div class="ach-icon">📊</div>
-          <div class="ach-text">Developed a <strong style="color:var(--text)">Power BI based interactive resume</strong>
-            that helped secure a global FP&amp;A role at a Fortune 500 organization.</div>
-        </div>
-        <div class="ach-card">
-          <div class="ach-icon">⚡</div>
-          <div class="ach-text"><strong style="color:var(--text)">Promoted to Senior Financial Analyst in one appraisal
-              cycle</strong> at Optum, reflecting strong performance and early impact.</div>
-        </div>
-        <div class="ach-card">
-          <div class="ach-icon">👥</div>
-          <div class="ach-text"><strong style="color:var(--text)">Led a team of 8 members</strong> in the Stock Audit of
-            ITC Ltd., managing coordination and deliverables end-to-end.</div>
-        </div>
-        <div class="ach-card">
-          <div class="ach-icon">🌟</div>
-          <div class="ach-text">Received <strong style="color:var(--text)">multiple Bravo awards</strong> from internal
-            teams within Optum for automation initiatives and cross-team support.</div>
-        </div>
-        <div class="ach-card">
-          <div class="ach-icon">🏆</div>
-          <div class="ach-text">Received <strong style="color:var(--text)">Most Efficient Article Certificate</strong>
-            for consistent performance and delivery on automation initiatives at JSS Pro.</div>
-        </div>
-        <div class="ach-card">
-          <div class="ach-icon">🏔</div>
-          <div class="ach-text">Completed the <strong style="color:var(--text)">Everest Base Camp Trek</strong> solo,
-            demonstrating endurance, planning, and independent decision making.</div>
-        </div>
+      <div class="ach-card">
+        <div class="ach-icon">🌟</div>
+        <div class="ach-text">Received <strong>multiple Bravo awards</strong> from internal teams within Optum for
+          automation initiatives and cross-team support.</div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-icon">🏆</div>
+        <div class="ach-text">Received <strong>Most Efficient Article Certificate</strong> for consistent performance
+          and delivery on automation initiatives at JSS Pro.</div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-icon">📊</div>
+        <div class="ach-text">Developed a <strong>Power BI based interactive resume</strong> that helped secure a global
+          FP&amp;A role at a Fortune 500 organization.</div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-icon">👥</div>
+        <div class="ach-text"><strong>Led a team of 8 members</strong> in the Stock Audit of ITC Ltd., managing
+          coordination and deliverables.</div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-icon">🏔</div>
+        <div class="ach-text">Completed the <strong>Everest Base Camp Trek</strong> solo, demonstrating endurance,
+          planning, and independent decision making.</div>
       </div>
     </div>
   </section>
+
   <!-- CERTIFICATIONS -->
   <section id="certifications">
     <div class="reveal">
-      <div class="section-label">Continuous Learning</div>
-      <div class="section-title">Certifications</div>
+      <span class="section-label">Continuous Learning</span>
+      <h2 class="section-title">Certifications</h2>
     </div>
     <div class="edu-grid reveal">
       <div class="edu-row">
@@ -1050,68 +1303,125 @@
       </div>
     </div>
   </section>
+
   <!-- ADDITIONAL -->
-  <section id="additional" style="background:var(--bg2)">
+  <section id="additional">
     <div class="reveal">
-      <div class="section-label">Beyond work</div>
-      <div class="section-title">Additional</div>
+      <span class="section-label">Beyond work</span>
+      <h2 class="section-title">Additional</h2>
     </div>
     <div class="extra-grid reveal">
       <div class="extra-block">
         <div class="extra-label">Languages</div>
         <div class="extra-items">
-          <span class="extra-item">English — Fluent</span>
-          <span class="extra-item">Hindi — Fluent</span>
-          <span class="extra-item">Telugu — Native</span>
+          <span class="extra-item">✦ English — Fluent</span>
+          <span class="extra-item">✦ Hindi — Fluent</span>
+          <span class="extra-item">✦ Telugu — Native</span>
         </div>
       </div>
       <div class="extra-block">
         <div class="extra-label">Interests</div>
         <div class="extra-items">
-          <span class="extra-item">Technology</span>
-          <span class="extra-item">Business Case Studies</span>
-          <span class="extra-item">Fitness</span>
-          <span class="extra-item">Travel</span>
-          <span class="extra-item">Independently explored multiple international destinations and over 10 Indian
-            states</span>
-          <span class="extra-item">Photography</span>
+          <span class="extra-item">✦ Technology</span>
+          <span class="extra-item">✦ Business Case Studies</span>
+          <span class="extra-item">✦ Fitness</span>
+          <span class="extra-item">✦ Travel</span>
+          <span class="extra-item">✦ Photography</span>
+        </div>
+      </div>
+      <div class="extra-block double">
+        <div class="extra-label">Travel </div>
+        <div class="extra-items">
+          <span class="extra-item">✦ Explored multiple international destinations and over 10 Indian states.</span>
+          <span class="extra-item">✦ Created <a
+              href="https://docs.google.com/spreadsheets/d/1liVk7lPDuEM9NOcn7eWWMjUHka-oGtaphDPnKXxLFT4/edit?gid=0#gid=0"
+              target="_blank" rel="noopener noreferrer" style="font-weight:600; text-decoration: underline;">travel
+              itineraries</a> tracking budgets, actual expenses, and variance analysis (budget vs. actual) for each
+            trip.</span>
         </div>
       </div>
     </div>
   </section>
+
   <footer id="contact">
-    <p style="margin-bottom:.4rem;font-family:'Playfair Display',serif;font-size:1rem;color:var(--text)">Anjuri Pavan
-      Sai Kumar</p>
-    <p>anjuripavan@mail.ca.in · +91 8331 840 881 · <a
-        href="https://linkedin.com/in/anjuripavan">linkedin.com/in/anjuripavan</a></p>
+    <p
+      style="margin-bottom: .6rem; font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--text-primary); font-weight: 700">
+      Anjuri Pavan Sai Kumar
+    </p>
+    <p style="margin-bottom: .8rem">
+      <a href="mailto:anjuripavan@mail.ca.in">anjuripavan@mail.ca.in</a> ·
+      <a href="tel:+918331840881">+91 8331 840 881</a> ·
+      <a href="https://linkedin.com/in/anjuripavan" target="_blank"
+        rel="noopener noreferrer">linkedin.com/in/anjuripavan</a>
+    </p>
+    <p style="font-size: .75rem; color: var(--text-muted); margin-top: 1.5rem">
+      &copy; 2026 Anjuri Pavan Sai Kumar.
+    </p>
   </footer>
+
   <script>
+    // Expand/collapse toggles
     function toggle(card) {
       const isOpen = card.classList.contains('open');
       document.querySelectorAll('.exp-card.open').forEach(c => {
         c.classList.remove('open');
+        c.setAttribute('aria-expanded', 'false');
       });
-      if (!isOpen) card.classList.add('open');
+      if (!isOpen) {
+        card.classList.add('open');
+        card.setAttribute('aria-expanded', 'true');
+      } else {
+        card.setAttribute('aria-expanded', 'false');
+      }
     }
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          // stagger children
-          e.target.querySelectorAll('.exp-card, .skill-card, .edu-row, .ach-card, .extra-block').forEach((el, i) => {
-            el.style.transitionDelay = (i * 0.07) + 's';
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(16px)';
-            el.style.transition = 'opacity .5s ease, transform .5s ease';
-            requestAnimationFrame(() => {
-              el.style.opacity = '1';
-              el.style.transform = 'none';
-            });
-          });
-        }
+
+    // Interactive Navbar scroll transition
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('navbar');
+      if (window.scrollY > 40) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+
+    // Run when DOM loads
+    document.addEventListener('DOMContentLoaded', () => {
+      document.documentElement.classList.add('js-enabled');
+
+      // Setup screen reader & keyboard navigation for experience/project cards
+      document.querySelectorAll('.exp-card').forEach(card => {
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('role', 'button');
+        card.setAttribute('aria-expanded', 'false');
+
+        card.addEventListener('keydown', e => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggle(card);
+          }
+        });
       });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+      // Calculate stagger transition delay once
+      document.querySelectorAll('.reveal').forEach(revealEl => {
+        revealEl.querySelectorAll('.exp-card, .skill-card, .edu-row, .ach-card, .extra-block').forEach((el, i) => {
+          el.style.transitionDelay = (i * 0.06) + 's';
+        });
+      });
+
+      // Intersection Observer without flicker & page layout thrashing
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            observer.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    });
   </script>
 </body>
 
